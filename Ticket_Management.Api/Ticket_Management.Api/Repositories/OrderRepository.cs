@@ -1,4 +1,6 @@
-﻿using Ticket_Management.Api.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using Ticket_Management.Api.Models;
 
 namespace Ticket_Management.Api.Repositories
 {
@@ -16,9 +18,10 @@ namespace Ticket_Management.Api.Repositories
             throw new NotImplementedException();
         }
 
-        public int Delete(long id)
+        public void Delete(Order @order)
         {
-            throw new NotImplementedException();
+            _dbContext.Remove(order);
+            _dbContext.SaveChanges();
         }
 
         public IEnumerable<Order> GetAll()
@@ -28,12 +31,13 @@ namespace Ticket_Management.Api.Repositories
             return orders;
         }
 
-        public Order GetById(long id)
+        public async Task<Order> GetById(long id)
         {
-            var @order = _dbContext.Orders.Where(e => e.OrderId == id).FirstOrDefault();
+            var @order = await _dbContext.Orders.Where(e => e.OrderId == id).FirstOrDefaultAsync();
 
             return @order;
         }
+
 
         public void Update(Order @order)
         {
@@ -44,8 +48,9 @@ namespace Ticket_Management.Api.Repositories
         {
             var orders = _dbContext.Orders;
 
-            var orderSorted_by_date = orders.OrderBy(e => e.OrderAt);
-            return orderSorted_by_date.OrderBy(e => e.TotalPrice);
+            var orderSorted_by_date = orders.OrderBy(o => o.OrderAt).ThenBy(o=>o.TotalPrice);
+            return orderSorted_by_date;
+
         }
     }
 }

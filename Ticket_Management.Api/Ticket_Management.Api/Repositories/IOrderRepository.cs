@@ -6,13 +6,13 @@ namespace Ticket_Management.Api.Repositories
     {
         IEnumerable<Order> GetAll();
 
-        Order GetById(long id);
+        Task<Order> GetById(long id);
 
         int Add(Order @order);
         
         void Update(Order @order);
 
-        int Delete(long id);
+        void Delete(Order @order);
 
         IEnumerable<Order> GetAllSortedByDateAndPrice();
     }
