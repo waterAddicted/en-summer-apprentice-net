@@ -35,9 +35,17 @@ namespace Ticket_Management.Api.Repositories
             return @event;
         }
 
+        public Event GetByName(string name)
+        {
+            var @event = _dbContext.Events.Where(e =>e.EventName == name).FirstOrDefault();
+            return @event;
+        }
+
         public void Update(Event @event)
         {
             throw new NotImplementedException();
         }
+
+
     }
 }

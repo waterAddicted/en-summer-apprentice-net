@@ -13,5 +13,9 @@ namespace Ticket_Management.Api.Repositories
         void Update(Event @event);
 
         int Delete(long id);
+
+        Event GetByName(string name);
+
+
     }
 }

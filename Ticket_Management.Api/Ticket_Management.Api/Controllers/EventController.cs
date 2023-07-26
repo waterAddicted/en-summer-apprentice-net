@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Ticket_Management.Api.Models;
 using Ticket_Management.Api.Models.DTOs;
 using Ticket_Management.Api.Repositories;
 
@@ -55,6 +56,27 @@ namespace Ticket_Management.Api.Controllers
             };
 
             return Ok(dtoEvent);
+        } 
+        
+        [HttpGet]
+        public ActionResult<EventDto> GetByName(string name)
+        {
+            var @event = _eventRepository.GetByName(name);
+            if (@event == null)
+                {
+                return NotFound();
+                }
+            var dtoEvent = new EventDto()
+            {
+                EventId = @event.EventId,
+                EventDescription = @event.EventDescription,
+                EventName = @event.EventName,
+                EventType = @event.EventType?.EventTypeName ?? string.Empty,
+                Venue = @event.Venue?.Location ?? string.Empty
+            };
+            return Ok(dtoEvent);
         }
     }
+
+
 }
