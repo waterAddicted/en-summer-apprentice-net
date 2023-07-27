@@ -32,6 +32,12 @@ namespace Ticket_Management.Api.Repositories
         {
             var @event = _dbContext.Events.Where(e => e.EventId == id).FirstOrDefault();
 
+            if(@event == null)
+            {
+                throw new Exception("The object was not found!");
+            }
+
+
             return @event;
         }
 

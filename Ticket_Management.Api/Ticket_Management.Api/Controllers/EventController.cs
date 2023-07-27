@@ -39,23 +39,29 @@ namespace Ticket_Management.Api.Controllers
         [HttpGet]
         public ActionResult<EventDto> GetById(long id)
         {
-            var @event = _eventRepository.GetById(id);
-
-            if (@event == null)
+            try
             {
-                return NotFound();
+                var @event = _eventRepository.GetById(id);
+
+                if (@event == null)
+                {
+                    return NotFound();
+                }
+
+                var dtoEvent = new EventDto()
+                {
+                    EventId = @event.EventId,
+                    EventDescription = @event.EventDescription,
+                    EventName = @event.EventName,
+                    EventType = @event.EventType?.EventTypeName ?? string.Empty,
+                    Venue = @event.Venue?.Location ?? string.Empty
+                };
+
+                return Ok(dtoEvent);
+            }catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
-
-            var dtoEvent = new EventDto()
-            {
-                EventId = @event.EventId,
-                EventDescription = @event.EventDescription,
-                EventName = @event.EventName,
-                EventType = @event.EventType?.EventTypeName ?? string.Empty,
-                Venue = @event.Venue?.Location ?? string.Empty
-            };
-
-            return Ok(dtoEvent);
         } 
         
         [HttpGet]

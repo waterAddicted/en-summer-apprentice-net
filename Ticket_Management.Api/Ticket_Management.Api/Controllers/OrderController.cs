@@ -78,5 +78,20 @@ namespace Ticket_Management.Api.Controllers
             _orderRepository.Delete(orderEntity);
             return NoContent();
         }
+
+        [HttpPatch]
+        public async Task<ActionResult<OrderDto>> Patch(OrderDto orderPatch)
+        {
+            var orderEntity = await _orderRepository.GetById(orderPatch.OrderId);
+            if (orderEntity == null)
+            {
+                return NotFound();
+            }
+            if (orderPatch.OrderAt.HasValue) orderEntity.OrderAt = orderPatch.OrderAt;
+            if (orderPatch.NumberOfTickets.HasValue) orderEntity.NumberOfTickets = orderPatch.NumberOfTickets;
+            if (orderPatch.TotalPrice.HasValue) orderEntity.TotalPrice = orderPatch.TotalPrice;
+            _orderRepository.Update(orderEntity);
+            return NoContent();
+        }
     }
 }

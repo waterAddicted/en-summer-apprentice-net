@@ -41,7 +41,8 @@ namespace Ticket_Management.Api.Repositories
 
         public void Update(Order @order)
         {
-            throw new NotImplementedException();
+            _dbContext.Entry(@order).State = EntityState.Modified;
+            _dbContext.SaveChanges();
         }
 
         public IEnumerable<Order> GetAllSortedByDateAndPrice()
