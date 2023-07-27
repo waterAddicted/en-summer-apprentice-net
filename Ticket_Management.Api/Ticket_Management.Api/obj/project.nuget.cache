@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lLFlOrLExyxtgs2vyuPMa9gTb2xnAQS5DZzlAebdzUb8WfLhs15BGxt/ev/Xgrj5TCr6auuZwlXCJkmKkn1ppw==",
+  "dgSpecHash": "8p8foH1qbtlgRbHdUYSb7YWzrJxxCBJ+moTonmIPg/fPQ+vpck0RYxO1HsxjKmkWDme/r+QeUtC3ALKfKnRUew==",
   "success": true,
   "projectFilePath": "C:\\en-summer-apprentice-net\\Ticket_Management.Api\\Ticket_Management.Api\\Ticket_Management.Api.csproj",
   "expectedPackageFiles": [
@@ -46,6 +46,9 @@
     "C:\\Users\\princ\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\princ\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\princ\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\princ\\.nuget\\packages\\nlog\\5.2.2\\nlog.5.2.2.nupkg.sha512",
+    "C:\\Users\\princ\\.nuget\\packages\\nlog.extensions.logging\\5.3.2\\nlog.extensions.logging.5.3.2.nupkg.sha512",
+    "C:\\Users\\princ\\.nuget\\packages\\nlog.web.aspnetcore\\5.3.2\\nlog.web.aspnetcore.5.3.2.nupkg.sha512",
     "C:\\Users\\princ\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\princ\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\princ\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",

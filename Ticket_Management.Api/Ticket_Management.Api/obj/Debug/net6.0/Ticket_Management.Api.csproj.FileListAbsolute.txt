@@ -87,3 +87,7 @@ C:\en-summer-apprentice-net\Ticket_Management.Api\Ticket_Management.Api\bin\Debu
 C:\en-summer-apprentice-net\Ticket_Management.Api\Ticket_Management.Api\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\en-summer-apprentice-net\Ticket_Management.Api\Ticket_Management.Api\bin\Debug\net6.0\AutoMapper.dll
 C:\en-summer-apprentice-net\Ticket_Management.Api\Ticket_Management.Api\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\en-summer-apprentice-net\Ticket_Management.Api\Ticket_Management.Api\bin\Debug\net6.0\nlog.config
+C:\en-summer-apprentice-net\Ticket_Management.Api\Ticket_Management.Api\bin\Debug\net6.0\NLog.dll
+C:\en-summer-apprentice-net\Ticket_Management.Api\Ticket_Management.Api\bin\Debug\net6.0\NLog.Extensions.Logging.dll
+C:\en-summer-apprentice-net\Ticket_Management.Api\Ticket_Management.Api\bin\Debug\net6.0\NLog.Web.AspNetCore.dll

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Ticket_Management.Api.Exceptions;
 using Ticket_Management.Api.Models;
 
 namespace Ticket_Management.Api.Repositories
@@ -33,7 +34,10 @@ namespace Ticket_Management.Api.Repositories
 
         public async Task<Order> GetById(long id)
         {
-            var @order = await _dbContext.Orders.Where(e => e.OrderId == id).FirstOrDefaultAsync();
+            var @order = await _dbContext.Orders.Where(o => o.OrderId == id).FirstOrDefaultAsync();
+
+            if (@order == null)
+                throw new EntityNotFoundException(id, nameof(Order));
 
             return @order;
         }

@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using AutoMapper;
 using Ticket_Management.Api.Models.DTOs;
 using Ticket_Management.Api.Repositories;
@@ -11,10 +14,13 @@ namespace Ticket_Management.Api.Controllers
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IMapper _mapper;
+        private readonly ILogger _logger;
 
-        public OrderController(IOrderRepository orderRepository)
+        public OrderController(IOrderRepository orderRepository, IMapper mapper, ILogger<OrderController> logger)
         {
             _orderRepository = orderRepository;
+            _mapper = mapper;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -53,17 +59,13 @@ namespace Ticket_Management.Api.Controllers
 
 
         [HttpGet]
-        public ActionResult<OrderDto> GetById(long id)
+        public async Task<ActionResult<OrderDto>> GetById(long id)
         {
-            var @order = _orderRepository.GetById(id);
-            
-            if (@order == null)
-            {
-                return NotFound();
-            }
-            var dtoOrder = _mapper.Map<OrderDto>(@order);
+            var @order = await _orderRepository.GetById(id);
 
-            return Ok(dtoOrder);
+            var orderDto = _mapper.Map<OrderDto>(@order);
+
+            return Ok(orderDto);
         }
 
 
