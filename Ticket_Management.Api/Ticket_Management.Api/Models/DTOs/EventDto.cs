@@ -11,6 +11,7 @@
         public string EventType { get; set; }
 
         public string Venue { get; set; }
-
+        public DateTime EndDate { get; set; }
+        public DateTime StartDate { get; set; }
     }
 }
